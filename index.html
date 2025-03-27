@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover the beauty of flowers at Flower Paradise. Learn about different types, view our gallery, and join our community.">
+    <title>Flower Paradise - Explore the World of Flowers</title>
+    <style>
+        :root {
+            --primary-color: #4caf50;
+            --secondary-color: #45a049;
+            --dark-color: #333;
+            --light-color: #f0f8ff;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-color);
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            background-color: var(--dark-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #e9f7ef;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--dark-color);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            margin: 1rem 0;
+        }
+
+        .radio-option,
+        .checkbox-option {
+            margin-right: 1rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: auto;
+            display: inline-block;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🌸 Flower Paradise 🌼</h1>
+        <p>Discover the Beauty of Nature's Most Colorful Creations</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#flowers">Flower Types</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#multimedia">Multimedia</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#registration">Register</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to Flower Paradise</h2>
+            <p>Immerse yourself in the vibrant world of flowers. Our website is dedicated to flower enthusiasts,
+                gardeners, and anyone who appreciates the beauty of nature's floral creations. Explore our resources,
+                learn about different species, and join our community of flower lovers.</p>
+
+            <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg" alt="Colorful flower garden"
+                class="hero-image">
+
+            <p>Flowers have been an integral part of human culture for centuries, symbolizing love, beauty, and renewal.
+                At Flower Paradise, we celebrate this natural wonder in all its forms.</p>
+        </section>
+
+        <section id="flowers">
+            <h2>Popular Flower Types</h2>
+            <p>Here are some of the most beloved flowers around the world, each with its unique characteristics and
+                symbolism:</p>
+
+            <ol type="I">
+                <li>
+                    <strong>Rose</strong> - The classic symbol of love and romance, available in many colors with
+                    different meanings.
+                </li>
+                <li>
+                    <strong>Lily</strong> - Elegant flowers representing purity and refined beauty, often used in
+                    weddings.
+                </li>
+                <li>
+                    <strong>Tulip</strong> - Bright, cheerful flowers that are a harbinger of spring, with a wide
+                    variety of colors.
+                </li>
+                <li>
+                    <strong>Sunflower</strong> - Vibrant yellow flowers that symbolize adoration, loyalty, and
+                    longevity.
+                </li>
+                <li>
+                    <strong>Daisy</strong> - Simple yet charming flowers representing innocence and purity.
+                </li>
+            </ol>
+        </section>
+
+        <section id="gallery">
+            <h2>Flower Gallery</h2>
+            <p>Browse through our collection of stunning flower images:</p>
+
+            <div class="gallery">
+                <img src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg" alt="Red rose">
+                <img src="https://images.pexels.com/photos/60597/dahlia-red-blossom-bloom-60597.jpeg"
+                    alt="Dahlia flower">
+                <img src="https://images.pexels.com/photos/462118/pexels-photo-462118.jpeg" alt="Pink cherry blossoms">
+                <img src="https://images.pexels.com/photos/1408221/pexels-photo-1408221.jpeg"
+                    alt="Purple lavender field">
+                <img src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg"
+                    alt="Colorful flower garden">
+                <img src="https://images.pexels.com/photos/1086178/pexels-photo-1086178.jpeg" alt="Sunflower field">
+            </div>
+        </section>
+
+        <section id="multimedia">
+            <h2>Flower Multimedia</h2>
+
+            <h3>The Beauty of Flowers (Video)</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/i810CxN5Q6Q" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3>Relaxing Garden Sounds (Audio)</h3>
+            <audio controls class="audio-player">
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Our Team</h2>
+            <p>Our flower experts are available to answer your questions and provide guidance:</p>
+        
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Mobile</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Thabo Mokoena</td>
+                        <td>123 Flower St, Johannesburg</td>
+                        <td>011-123-4567</td>
+                        <td><a href="mailto:thabo.mokoena@email.com">thabo.mokoena@email.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Nomsa Khumalo</td>
+                        <td>456 Petal Rd, Cape Town</td>
+                        <td>021-567-8901</td>
+                        <td><a href="mailto:nomsa.khumalo@email.com">nomsa.khumalo@email.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Thulani Zulu</td>
+                        <td>789 Rose Ave, Durban</td>
+                        <td>031-910-1122</td>
+                        <td><a href="mailto:thulani.zulu@email.com">thulani.zulu@email.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Keabetswe Masego</td>
+                        <td>101 Daisy Ln, Pretoria</td>
+                        <td>012-112-2233</td>
+                        <td><a href="mailto:keabetswe.masego@email.com">keabetswe.masego@email.com</a></td>
+                    </tr>
+                    <tr>
+                        <td>Odirile Mogotsi</td>
+                        <td>202 Tulip Blvd, Bloemfontein</td>
+                        <td>051-334-4455</td>
+                        <td><a href="mailto:odirile.mogotsi@email.com">odirile.mogotsi@email.com</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+        <section id="registration">
+            <h2>Join Our Flower Community</h2>
+            <p>Register to receive our monthly newsletter, gardening tips, and exclusive offers:</p>
+
+            <form action="#" method="post" novalidate>
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required minlength="3"
+                        maxlength="50">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password"
+                        placeholder="Create a password (min 8 characters)" required minlength="8"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password"
+                        placeholder="Confirm your password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required max="2023-12-31">
+                </div>
+
+                <div class="form-group">
+                    <label for="flower-preference">Favorite Flower:</label>
+                    <select id="flower-preference" name="flower-preference" required>
+                        <option value="" disabled selected>Select your favorite</option>
+                        <option value="rose">Rose</option>
+                        <option value="lily">Lily</option>
+                        <option value="tulip">Tulip</option>
+                        <option value="sunflower">Sunflower</option>
+                        <option value="daisy">Daisy</option>
+                        <option value="orchid">Orchid</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <label class="radio-option"><input type="radio" name="gender" value="male" required>
+                            Male</label>
+                        <label class="radio-option"><input type="radio" name="gender" value="female"> Female</label>
+                        <label class="radio-option"><input type="radio" name="gender" value="other"> Other</label>
+                        <label class="radio-option"><input type="radio" name="gender" value="prefer-not-to-say"> Prefer
+                            not to say</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Interests (Select all that apply):</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-option"><input type="checkbox" name="interests" value="gardening">
+                            Gardening</label>
+                        <label class="checkbox-option"><input type="checkbox" name="interests" value="flower-arranging">
+                            Flower Arranging</label>
+                        <label class="checkbox-option"><input type="checkbox" name="interests" value="photography">
+                            Photography</label>
+                        <label class="checkbox-option"><input type="checkbox" name="interests" value="botany">
+                            Botany</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="newsletter">Subscribe to Newsletter:</label>
+                    <label class="checkbox-option"><input type="checkbox" id="newsletter" name="newsletter" value="yes"
+                            checked> Yes, I would like to receive updates and promotions</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="comments">Additional Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"
+                        placeholder="Any special requests or comments..."></textarea>
+                </div>
+
+                <button type="submit">Register Now</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact us at: <a href="mailto:info@flowerparadise.com">info@flowerparadise.com</a> | Phone: 555-123-4567</p>
+        <p>Visit us at: 123 Garden Way, Bloomington, IN 47401</p>
+        <p>&copy; 2025 Flower Paradise. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>
